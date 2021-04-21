@@ -9,12 +9,18 @@ const ArticleSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  category: {
+  category1: {
+    type: String,
+    required: true
+  },
+  category2: {
     type: String
   },
-  date: {
-    type: Date,
-    required: true
+  createDate: {
+    type: Date
+  },
+  updateDate: {
+    type: Date
   },
   description: {
     type: String,

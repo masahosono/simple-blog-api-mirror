@@ -35,12 +35,20 @@ apiRouter.get("/auth", auth, (req, res, next) => {
 
 apiRouter.post("/image", auth, (req, res) => {
     upload(req, res, () => {
-        const url = process.env.BASE_URL + '/' + req.file.path.replace('public/', '');
+        const url = process.env.FE_URL + '/' + req.file.path.replace('public/', '');
         res.json({ imageUrl: url });
     })
 })
 
 apiRouter.post("/article", auth, (req, res, next) => {
+    next();
+})
+
+apiRouter.get("/article/category", auth, (req, res, next) => {
+    next();
+})
+
+apiRouter.post("/article/category", auth, (req, res, next) => {
     next();
 })
 

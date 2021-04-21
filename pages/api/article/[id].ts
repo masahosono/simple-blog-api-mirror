@@ -1,6 +1,7 @@
 import dbConnect from 'src/util/dbConnect'
 import ArticleModel from 'src/model/db/Article'
 import { NextApiRequest, NextApiResponse } from 'next'
+import moment from 'moment'
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const {
@@ -25,7 +26,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     case 'PUT':
       try {
-        const article = await ArticleModel.updateOne({ "_id": id }, { $set: { ...req.body } });
+        const updateDate = new Date();
+        const article = await ArticleModel.updateOne({ "_id": id }, { $set: { ...req.body, updateDate } });
         if (!article) {
           return res.status(400).json({ success: false })
         }

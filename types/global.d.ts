@@ -4,6 +4,6 @@ declare namespace NodeJS {
         readonly MONGODB_URI: string;
         readonly SECRET: string;
         readonly BASE_URL: string;
-        readonly IS_LOCAL: boolean;
+        readonly FE_URL: string;
     }
 }
