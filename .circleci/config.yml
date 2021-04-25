@@ -1,0 +1,37 @@
+version: 2.1
+jobs:
+  start-test:
+    docker:
+      - image: circleci/node:4.8.2
+    steps:
+      - run: echo "start test"
+  start-deploy:
+    docker:
+      - image: circleci/node:4.8.2
+    steps:
+      - run: echo "start deploy"
+  test:
+    docker:
+      - image: circleci/node:4.8.2
+    steps:
+      - run: echo "test"
+  deploy:
+    docker:
+      - image: circleci/node:4.8.2
+    steps:
+      - checkout
+      - run: ssh -o "StrictHostKeyChecking=no" $SSH_USER@$SSH_HOST -p $SSH_PORT "~/deploy/deploy_be.sh"
+workflows:
+  test:
+    jobs:
+      - start-test
+  deploy:
+    jobs:
+      - start-deploy:
+          filters:
+            branches:
+              only:
+                - master
+      - deploy:
+          requires:
+            - start-deploy
