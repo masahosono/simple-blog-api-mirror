@@ -9,6 +9,8 @@ const server = express();
  
 app.prepare()
     .then(() => {
+        server.use(express.static("public"));
+
         server.use("/api", apiRoutes, (req, res) => {
             req.url = req.originalUrl;
             return handler(req, res);
