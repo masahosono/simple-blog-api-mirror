@@ -6,11 +6,11 @@
     "watch": "tsc-watch --onSuccess \"yarn dev\"",
     "build:new": "next build && webpack",
     "build": "next build && tsc --project tsconfig.server.json",
-    "run:local": "NODE_ENV=development node dist/index.js",
-    "run:dev": "NODE_ENV=development forever start dist/index.js",
-    "run:prod": "NODE_ENV=production forever start dist/index.js",
-    "start:dev": "NODE_ENV=development node dist/index.js",
-    "start": "NODE_ENV=production node dist/index.js"
+    "run:local": "NODE_ENV=development node dist/be_server.js",
+    "run:dev": "NODE_ENV=development forever start dist/be_server.js",
+    "run:prod": "NODE_ENV=production forever start dist/be_server.js",
+    "start:dev": "NODE_ENV=development node dist/be_server.js",
+    "start": "NODE_ENV=production node dist/be_server.js"
   },
   "name": "src",
   "dependencies": {
