@@ -1,2 +1,2 @@
 # simple-blog-api-mirror
-mirror from simple-blog-api
+mirror from simple-blog-api(Deprecated)
